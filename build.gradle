@@ -27,8 +27,23 @@ dependencies {
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'com.amazonaws.serverless:aws-serverless-java-container-springboot3:2.0.0-M2'
+
+	implementation platform('software.amazon.awssdk:bom:2.20.56')
+	implementation 'software.amazon.awssdk:dynamodb-enhanced'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+task buildZip(type: Zip) {
+	into('lib') {
+		from(jar)
+		from(configurations.runtimeClasspath)
+	}
+	setArchiveFileName("handler.zip")
+}
+
+build.dependsOn buildZip

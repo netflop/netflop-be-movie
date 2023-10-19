@@ -11,9 +11,9 @@
     workflow_dispatch:
 
   env:
-    AWS_REGION: ${{ secret.NETFLOP_AWS_REGION }}
-    AWS_ACCESS_KEY_ID: ${{ secret.NETFLOP_AWS_REGION }}
-    AWS_SECRET_KEY: ${{ secret.NETFLOP_AWS_SECRETKEY }}
+    AWS_REGION: ${{ secrets.NETFLOP_AWS_REGION }}
+    AWS_ACCESS_KEY_ID: ${{ secrets.NETFLOP_AWS_REGION }}
+    AWS_SECRET_KEY: ${{ secrets.NETFLOP_AWS_SECRETKEY }}
     ENVIRONMENT: ${{ github.base_ref == 'master' && 'prod' || 'dev' }}
 
   jobs:

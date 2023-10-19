@@ -29,7 +29,7 @@ public class CdkStack extends Stack {
 
         final var lambda = Function.Builder
                 .create(this, "netflop-movie-lambda")
-                .runtime(Runtime.JAVA_11)
+                .runtime(Runtime.JAVA_17)
                 .handler("com.netflop.be.movie.LambdaHandler")
                 .code(Code.fromAsset("../build/distributions/handler.zip"))
                 .timeout(Duration.seconds(30))

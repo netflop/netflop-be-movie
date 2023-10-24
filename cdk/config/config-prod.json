@@ -1,0 +1,24 @@
+{
+  "lambda": {
+    "name": "netflop-movie-dev",
+    "handler": "com.netflop.be.movie.LambdaHandler",
+    "codePath": "../build/distributions/handler.zip",
+    "env": [
+      [
+        "ENV",
+        "dev"
+      ],
+      [
+        "S3_BUCKET",
+        "bucket"
+      ]
+    ]
+  },
+  "api": {
+    "name": "netflop-movie-api-dev",
+    "stage": "dev"
+  },
+  "cognito": {
+    "cognitoPoolId": "us-east-1_mFVFo7B09"
+  }
+}

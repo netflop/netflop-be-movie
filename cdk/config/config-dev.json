@@ -9,8 +9,8 @@
         "dev"
       ],
       [
-        "S3_BUCKET",
-        "bucket"
+        "S3_STORAGE_BUCKET",
+        "netflop-movie-storage-dev"
       ]
     ]
   },

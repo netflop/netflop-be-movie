@@ -21,6 +21,9 @@
       if: ${{ github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch' }}
       runs-on: ubuntu-latest
       steps:
+        - name: Checkout latest code
+          uses: actions/checkout@v4
+
         - name: Install AWS CLI
           run: |
             sudo apt-get update
@@ -53,13 +56,9 @@
           run: |
             npm install -g aws-cdk
 
-        - name: Install package for CDK
-          run: |
-            cd cdk
-            mvn clean install
-
         - name: Deploy
           run: |
+            cd cdk
             cdk synth -c env=$ENVIRONMENT
             cdk bootstrap
             cdk deploy

@@ -11,15 +11,15 @@
         "S3_STORAGE_BUCKET", "netflop-movie-storage-prod"
       ],
       [
-        "DYNAMODB_MOVIE_TABLE", "netflop-movie-dev"
+        "DYNAMODB_MOVIE_TABLE", "netflop-movie-prod"
       ]
     ]
   },
   "api": {
-    "name": "netflop-movie-api-dev",
-    "stage": "dev"
+    "name": "netflop-movie-api-prod",
+    "stage": "prod"
   },
   "cognito": {
-    "cognitoPoolId": "us-east-1_phiuXxoex"
+    "cognitoPoolId": "us-east-1_lOVWqU7A9"
   }
 }

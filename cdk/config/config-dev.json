@@ -15,10 +15,10 @@
     ]
   },
   "api": {
-    "name": "netflop-movie-api-prod",
+    "name": "netflop-movie-api-dev",
     "stage": "prod"
   },
   "cognito": {
-    "cognitoPoolId": "us-east-1_phiuXxoex"
+    "cognitoPoolId": "us-east-1_4arXTVYQZ"
   }
 }

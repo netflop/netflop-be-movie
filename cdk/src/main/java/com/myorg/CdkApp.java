@@ -9,7 +9,13 @@ import java.util.Arrays;
 public class CdkApp {
     public static void main(final String[] args) {
         App app = new App();
-        new CdkStack(app, "netflop-movie-stack", StackProps.builder()
+        String env = (String)app.getNode().tryGetContext("env");
+
+        if(env == null || env.isEmpty()) {
+            env = "dev";
+        }
+
+        new CdkStack(app, "netflop-movie-stack-" + env, StackProps.builder()
                 // If you don't specify 'env', this stack will be environment-agnostic.
                 // Account/Region-dependent features and context lookups will not work,
                 // but a single synthesized template can be deployed anywhere.

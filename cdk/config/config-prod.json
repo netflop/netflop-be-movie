@@ -1,24 +1,25 @@
 {
   "lambda": {
-    "name": "netflop-movie-dev",
+    "name": "netflop-movie-prod",
     "handler": "com.netflop.be.movie.LambdaHandler",
     "codePath": "../build/distributions/handler.zip",
     "env": [
       [
-        "ENV",
-        "dev"
+        "ENV", "prod"
       ],
       [
-        "S3_BUCKET",
-        "bucket"
+        "S3_STORAGE_BUCKET", "netflop-movie-storage-prod"
+      ],
+      [
+        "DYNAMODB_MOVIE_TABLE", "netflop-movie-prod"
       ]
     ]
   },
   "api": {
-    "name": "netflop-movie-api-dev",
-    "stage": "dev"
+    "name": "netflop-movie-api-prod",
+    "stage": "prod"
   },
   "cognito": {
-    "cognitoPoolId": "us-east-1_mFVFo7B09"
+    "cognitoPoolId": "us-east-1_lOVWqU7A9"
   }
 }

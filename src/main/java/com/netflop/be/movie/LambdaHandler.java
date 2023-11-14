@@ -3,6 +3,7 @@ package com.netflop.be.movie;
 import com.amazonaws.serverless.exceptions.ContainerInitializationException;
 import com.amazonaws.serverless.proxy.model.AwsProxyRequest;
 import com.amazonaws.serverless.proxy.model.AwsProxyResponse;
+import com.amazonaws.serverless.proxy.spring.SpringBootProxyHandlerBuilder;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 import com.amazonaws.serverless.proxy.spring.SpringBootLambdaContainerHandler;
@@ -16,7 +17,9 @@ public class LambdaHandler implements RequestStreamHandler {
 
     static {
         try {
-            handler = SpringBootLambdaContainerHandler.getAwsProxyHandler(MovieApplication.class);
+            handler = new SpringBootProxyHandlerBuilder<AwsProxyRequest>().springBootApplication(MovieApplication.class)
+                    .defaultProxy()
+                    .buildAndInitialize();
             // If you are using HTTP APIs with the version 2.0 of the proxy model, use the getHttpApiV2ProxyHandler
             // method: handler = SpringBootLambdaContainerHandler.getHttpApiV2ProxyHandler(Application.class);
         } catch (ContainerInitializationException e) {

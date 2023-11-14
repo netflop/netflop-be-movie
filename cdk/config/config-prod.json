@@ -11,7 +11,16 @@
         "S3_STORAGE_BUCKET", "netflop-movie-storage-prod"
       ],
       [
-        "DYNAMODB_MOVIE_TABLE", "netflop-movie-prod"
+        "AWS_USER_POOL_ID",
+        "us-east-1_vFi6R9pRZ"
+      ],
+      [
+        "DYNAMODB_USER_TABLE",
+        "netflop-user-prod"
+      ],
+      [
+        "DYNAMODB_MOVIE_TABLE",
+        "netflop-movie-prod"
       ]
     ]
   },
